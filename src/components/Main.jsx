@@ -24,7 +24,6 @@ const Main = () => {
 
   const topMovie = movies[Math.floor(Math.random() * movies.length)];
 
-  console.log(topMovie);
   return (
     <div className="w-full h-[550px] text-white">
       <div className="absolute w-full h-[550px] bg-gradient-to-r from-black"></div>
