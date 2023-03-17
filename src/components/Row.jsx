@@ -19,19 +19,22 @@ const Row = ({ title, fetchURL }) => {
       <h1 className="text-white font-bold md:text-xl p-4">{title}</h1>
       <div className="relative flex items-center">
         <MdChevronLeft
-          className="bg-white rounded-full opacity-50 hover:opacity-100 cursor-pointer z-10"
+          className="bg-white rounded-full opacity-50 hover:opacity-100 cursor-pointer z-10 absolute left-0 hover:block focus:text-black"
           size={40}
         />
         <div
-          id={"slider"}
-          className="w-full h-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide"
+          id="slider"
+          className="w-full h-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide "
         >
           {movies.map((movie, id) => {
-            return <Movie movie={movie} id={id} />;
+            return <Movie movie={movie} key={id} />;
           })}
         </div>
         <MdChevronRight
-          className="bg-white rounded-full opacity-50 hover:opacity-100 cursor-pointer z-10"
+          type="button"
+          data-te-target="#slider"
+          data-te-slide="next"
+          className="bg-white rounded-full opacity-50 hover:opacity-100 cursor-pointer z-10 absolute right-0"
           size={40}
         />
       </div>

@@ -6,7 +6,7 @@ const Main = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    getData(Requests.requestPopular);
+    getData(Requests[0].url);
   }, []);
 
   const getData = async (API) => {
