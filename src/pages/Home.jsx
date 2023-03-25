@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
         <Main/>
-        {Requests.map((res, id) => <Row title={res.title} fetchURL={res.url} key={id}/>) }
+        {Requests.map((res, id) => <Row title={res.title} fetchURL={res.url} key={id} rowID={id}/>) }
     </div>
   )
 }
