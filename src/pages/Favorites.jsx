@@ -1,4 +1,4 @@
-// import SavedMovies from "../components/SavedMovies";
+import FavoriteMovies from "../components/FavoriteMovies";
 
 const Favorites = () => {
   return (
@@ -14,7 +14,7 @@ const Favorites = () => {
           <h1 className="text-3xl md:text-5xl font-bold">My Favourites</h1>
         </div>
       </div>
-      {/* <SavedMovies /> */}
+      <FavoriteMovies />
     </>
   );
 };
