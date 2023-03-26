@@ -5,7 +5,7 @@ import { AuthContextProvider } from "../context/AuthContext";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-// import Account from "../pages/Account";
+import Favorites from "../pages/Favorites";
 
 
 const AppRouter = () => {
@@ -17,7 +17,7 @@ const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} /> 
-          {/* <Route path="/account" element={<Account />} /> */}
+          <Route path="/myfavorites" element={<Favorites />} />
         </Routes>
       </AuthContextProvider>
     </>
