@@ -15,16 +15,17 @@ const FavoriteMovies = () => {
     });
   }, [user?.email]);
 
+  const movieRef = doc(db, 'users', `${user?.email}`)
   const deleteMovie = async (passedID) => {
     try {
-      const result = movies.filter((movie) => movie.id !== passedID);
-      await updateDoc(doc(db, "users", `${user?.email}`), {
-        favoriteMovies: result,
-      });
+      const result = movies.filter((movie) => movie.id !== passedID)
+      await updateDoc(movieRef, {
+        favoriteMovies: result
+      })
     } catch (error) {
-      console.log(error);
+        console.log(error)
     }
-  };
+}
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");

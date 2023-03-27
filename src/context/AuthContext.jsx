@@ -17,7 +17,7 @@ export function AuthContextProvider({ children }) {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         setDoc(doc(db, "users", email), {
-          savedMovies: [],
+          favoriteMovies: [],
         });
       })
       .catch((error) => {

@@ -7,14 +7,14 @@ import defImg from "../asset/movie.png";
 
 const Movie = ({ movie }) => {
   const [like, setLike] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(false)
   const { user } = UserAuth();
   const movieID = doc(db, "users", `${user?.email}`);
 
   const handleLiked = async() => {
     if (user?.email) {
       setLike(!like);
-      setSaved(true);
+      setSaved(true)
 
       await updateDoc(movieID, {
         favoriteMovies: arrayUnion({
