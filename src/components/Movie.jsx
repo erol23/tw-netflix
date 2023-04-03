@@ -29,7 +29,7 @@ const Movie = ({ movie }) => {
   };
 
   const handleClick = () => {
-    navigate("/detail")
+    navigate("/detail", {state: movie})
   }
   return (
     <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block relative cursor-pointer p-2 ">

@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { AuthContextProvider, UserAuth } from "../context/AuthContext";
+import { AuthContextProvider } from "../context/AuthContext";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
