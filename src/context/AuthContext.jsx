@@ -6,7 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
 
 export const AuthContext = createContext();
 
@@ -33,6 +33,12 @@ export function AuthContextProvider({ children }) {
     return signOut(auth);
   }
 
+  function likedMovie(favMovie) {
+    updateDoc(doc(db, "users", `${user?.email}`), {
+      favoriteMovies: arrayUnion(favMovie),
+    })
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -46,6 +52,7 @@ export function AuthContextProvider({ children }) {
     signUp,
     logIn,
     logOut,
+    likedMovie,
     user,
   };
 
