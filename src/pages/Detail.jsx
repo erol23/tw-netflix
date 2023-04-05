@@ -10,17 +10,20 @@ const Detail = () => {
   const { likedMovie } = UserAuth();
   const res = location.state;
 
-  useEffect(() => {
-    getVideo();
-  }, [trailer]);
-
   const API_KEY = process.env.REACT_APP_API_KEY;
   const VIDEO_BASE_URL = `https://api.themoviedb.org/3/movie/${res.id}/videos?api_key=${API_KEY}`;
 
-  const getVideo = async () => {
-    const { data } = await axios(VIDEO_BASE_URL);
-    setTrailer(data);
-  };
+  useEffect(() => {
+    const getVideo = async () => {
+      const { data } = await axios(VIDEO_BASE_URL);
+      setTrailer(data);
+    };
+
+    getVideo();
+  }, [VIDEO_BASE_URL]);
+
+
+  
 
   const handleWatch = async () => {
     const favMovie = {
@@ -41,7 +44,6 @@ const Detail = () => {
     }
   };
 
-  console.log(trailer);
 
   return (
     <>

@@ -6,10 +6,9 @@ const Login = () => {
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { user, logIn } = UserAuth();
+  const { logIn } = UserAuth();
   const navigate = useNavigate();
 
-  console.log(user)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
