@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Requests from "../Requests";
+import { UserAuth } from "../context/AuthContext";
+
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
+  const { user, likedMovie } = UserAuth();
 
   useEffect(() => {
     getData(Requests[0].url);
@@ -22,6 +25,19 @@ const Main = () => {
     }
   };
 
+  const handleWatch = async() => {
+    if (user?.email) {
+      const favMovie = {
+        id: topMovie.id,
+        title: topMovie.title,
+        img: topMovie.backdrop_path,
+      };
+      await likedMovie(favMovie);
+    } else {
+      alert("Please log in to like a movie");
+    }
+  }
+
   const topMovie = movies[Math.floor(Math.random() * movies.length)];
 
   return (
@@ -38,7 +54,7 @@ const Main = () => {
           <button className="border border-gray-300 bg-white text-black py-2 p-10 px-5">
             Play
           </button>
-          <button className="border border-gray-300 text-white ml-4 py-2 px-5">
+          <button className="border border-gray-300 text-white ml-4 py-2 px-5" onClick={handleWatch}>
             Watch Later
           </button>
         </div>
